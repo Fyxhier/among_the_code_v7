@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among The Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app" style="display:flex;flex-direction:column;height:100vh;"></div>
+
+<!--
+    Load order (each file may call functions defined in files below it,
+    but those calls only happen at runtime — not at parse time):
+
+    constants → state → network → game → tasks → meeting-vote
+    → win-lose → actions → ui/render → ui/lobby → ui/waiting
+    → ui/role → ui/taskbar → ui/meeting-vote-ui → ui/execute-code-ui → ui/win-lose-ui → ui/coding
+-->
+
+<script src="js/constants.js"></script>
+<script src="js/state.js"></script>
+<script src="js/network.js"></script>
+<script src="js/game.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/meeting-vote.js"></script>
+<script src="js/win-lose.js"></script>
+<script src="js/actions.js"></script>
+<script src="js/ui/render.js"></script>
+<script src="js/ui/lobby.js"></script>
+<script src="js/ui/waiting.js"></script>
+<script src="js/ui/role.js"></script>
+<script src="js/ui/taskbar.js"></script>
+<script src="js/ui/meeting-vote-ui.js"></script>
+<script src="js/ui/execute-code-ui.js"></script>
+<script src="js/ui/remote-cursors.js"></script>
+<script src="js/ui/win-lose-ui.js"></script>
+<script src="js/ui/coding.js"></script>
+
+<script>
+    window.onload = () => {
+        render();
+        initPeer();
+        console.log('%c🚀 Among The Code — loaded', 'color:#007acc;font-size:13px;font-weight:bold;');
+    };
+</script>
+
+</body>
+</html>
